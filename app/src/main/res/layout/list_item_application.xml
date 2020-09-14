@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/imgApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Icon App"
+        android:src="@drawable/icon"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:id="@+id/txtAppName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        tools:text="App Name"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/imgApp"
+        android:layout_toEndOf="@+id/imgApp"
+        style="@style/titleText"
+        />
+
+    <TextView
+        android:id="@+id/txtStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        tools:text="Status"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
+        style="@style/regularText"
+        />
+
+    <TextView
+        android:id="@+id/txtPackageName"
+        style="@style/regularText"
+        android:layout_width="285dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtAppName"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_toEndOf="@+id/imgApp"
+        android:layout_toRightOf="@+id/imgApp"
+        tools:text="Package Name" />
+
+    <TextView
+        android:id="@+id/txtVersionCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPackageName"
+        android:layout_toRightOf="@+id/imgApp"
+        android:layout_toEndOf="@+id/imgApp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        tools:text="Version Code: 1230"
+
+        />
+
+    <TextView
+        android:id="@+id/txtVersionName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPackageName"
+        android:layout_toRightOf="@+id/txtVersionCode"
+        android:layout_toEndOf="@+id/txtVersionCode"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        tools:text="Version Name: 1.0.0"
+
+        />
+
+    <ImageButton
+        android:id="@+id/btnUninstall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="35dp"
+        android:layout_toRightOf="@+id/txtVersionName"
+        android:src="@drawable/ic_delete_grey" />
+
+</RelativeLayout>

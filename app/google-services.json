@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "933604380739",
+    "firebase_url": "https://mdm-application-5b695.firebaseio.com",
+    "project_id": "mdm-application-5b695",
+    "storage_bucket": "mdm-application-5b695.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933604380739:android:ca695261dd6be1975384f6",
+        "android_client_info": {
+          "package_name": "org.flyve.mdm.agent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "933604380739-ekh2q4vfsvd5v518b1ckncu5til6enq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqBkrLoxW_tuwQbX8zWoF-etrWDVH8RPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "933604380739-ekh2q4vfsvd5v518b1ckncu5til6enq8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

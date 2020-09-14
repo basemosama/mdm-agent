@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#767677</color>
+    <color name="colorPrimaryDark">#4C4C4C</color>
+    <color name="colorAccent">#13988A</color>
+    <color name="black">#000000</color>
+    <color name="red">#EA1E31</color>
+    <color name="white">#FFF</color>
+    <color name="gray">#EFF0F1</color>
+    <color name="grayLight">#D7D7D7</color>
+    <color name="grayDark">#4C4C4C</color>
+    <color name="blue">#4073B9</color>
+    <color name="snackbar_action">#FFF</color>
+
+    <color name="bg_dialog_title">@android:color/transparent</color>
+
+    <!-- scanner -->
+    <color name="scan_mask">#60000000</color>
+    <color name="scan_laser">#cc0000</color>
+    <color name="scan_dot">#ff6600</color>
+    <color name="scan_result_view">#b0000000</color>
+    <color name="scan_result_dots">#c099cc00</color>
+</resources>

@@ -1,0 +1,259 @@
+<resources>
+    <string name="app_name">Flyve MDM Agent</string>
+
+    <string name="walkthrough_step_1">&lt;a href="http://flyve-mdm.com"&gt;Flyve MDM&lt;/a&gt; is a mobile device management software that enables you to secure and manage all the mobile devices of your business or family via web-based console, click on link if you need more information</string>
+    <string name="walkthrough_step_link_1">http://flyve-mdm.com</string>
+    <string name="walkthrough_step_2">The first step to start using this app and get a free trial by registering please go to &lt;a href="https://demo.flyve.org/#!/login/"&gt; Administration Web Console&lt;/a&gt;</string>
+    <string name="walkthrough_step_link_2">https://demo.flyve.org/#!/login/</string>
+    <string name="walkthrough_step_3">On your Administration Web Console add a new device with your email, in this email you are going to get a register link please click on it on the device and you can begin the enrollment process</string>
+
+    <string name="disclosure_permission">Flyve MDM is a mobile device management software that enables you to secure and manage all the mobile devices of your business or family via web-based console\n\n
+
+    These are our support features:\n\n
+
+        - Central Mobile Policy Management and Policy Inheritance\n\n
+        - Lost Device Detection, Jail-broken phone Detection, including Lock, Wipe, and Encryption\n\n
+        - Password Restrictions, App Restrictions\n\n
+        - Device Telemetry and Asset Management\n\n
+        - App Distribution and Mobile App Management (MAM)\n\n
+        - File Distribution\n\n
+        - Role-Based Admin Management\n\n
+        - Anytime Anywhere access though Cloud Console\n\n\n
+
+        Accept our policy to continue
+    </string>
+    <string name="disclosure_decline">We need that you accept to continue</string>
+    <string name="flyve_link">http://flyve-mdm.com</string>
+    <string name="start_enroll">Enroll device</string>
+    <string name="fail_enroll">Enrollment fail</string>
+    <string name="please_wait">PLEASE WAIT</string>
+    <string name="enrollment">Enrollment</string>
+    <string name="user_information_enroll">User information</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="phone">Phone</string>
+    <string name="phoneMobile">Phone mobile</string>
+    <string name="phone2">Phone 2</string>
+    <string name="email">Email</string>
+    <string name="administrative_number">Administrative number</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    <string name="snackbar_close">Dismiss</string>
+    <string name="enrollment_in_process">Enrollment in process</string>
+    <string name="creating_certified_x509">Creating client certificate</string>
+    <string name="device_supervised_by_title">DEVICE SUPERVISED BY</string>
+    <string name="user_information_title">USER INFORMATION</string>
+
+    <string name="mqtt_configuration_title">Warning: just edit this text if you know what are you doing, edit this information maybe cause your app lose connection with the server</string>
+    <string name="mqtt_broker">Broker</string>
+    <string name="mqtt_port">Port</string>
+    <string name="mqtt_user">User</string>
+    <string name="mqtt_password">Password</string>
+    <string name="mqtt_initital_topic">Initial Topic</string>
+    <string name="mqtt_save_message">Saved</string>
+
+    <string name="success">Success</string>
+    <string name="saved">Saved</string>
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+    <string name="not_available">Not available</string>
+
+    <string name="check_store_fail">This path is not available</string>
+
+    <string name="disclosure_title">Terms and Conditions</string>
+
+    <string name="validate_error">Please fix the following errors and try again.\n\n</string>
+    <string name="validate_email">- Email should not be empty.\n</string>
+    <string name="validate_email_at_least_one">- Please add one email at least.\n</string>
+    <string name="validate_first_name">- First name should not be empty.\n</string>
+    <string name="validate_last_name">- Last name should not be empty.\n</string>
+    <string name="validate_organization">- Organization should not be empty.\n</string>
+    <string name="validate_inventory">- Inventory fail please close enrollment and try again.\n</string>
+    <string name="validate_inventory_wait">- Inventory is running please wait and try again.\n</string>
+    <string name="validate_check_details">Please check problem details at the bottom of the form</string>
+    <string name="validate_fcm_token">The FCM token is not present, close the app and try again</string>
+
+    <string name="lock_message">This device has been blocked by administrator, please contact her</string>
+    <string name="lock_email">Please enter your email</string>
+    <string name="lock_unlock">UNLOCK</string>
+
+    <string name="error_certified_x509">Error creating certificate X509</string>
+    <string name="error_title">We have a problem</string>
+
+    <string name="download_file_fail">Download file fail</string>
+    <string name="download_file_ready">Download file ready! </string>
+
+    <string name="take_photo">Take Photo</string>
+    <string name="choose_from_library">Choose from Library</string>
+    <string name="add_photo">Add photo</string>
+
+    <string name="select_file">Select File</string>
+
+    <string name="help">help</string>
+    <string name="loading">Loading...</string>
+
+    <string name="disable_airplane_mode">Disable airplane mode</string>
+    <string name="disable_bluetooth">Disable bluetooth</string>
+    <string name="disable_gps">Disable GPS</string>
+    <string name="disable_mobile_line">Disable mobile line</string>
+    <string name="disable_wifi">Disable wifi</string>
+
+    <string name="storage_encryption_device">Storage encryption device</string>
+    <string name="disable_camera">Disable camera</string>
+    <string name="password_length">Password length</string>
+    <string name="password_quality">Password quality</string>
+    <string name="password_minimum_letters">Password minimum letters</string>
+    <string name="password_minimum_lower_case">Password minimum lower case</string>
+    <string name="password_minimum_upper_case">Password minimum upper case</string>
+    <string name="password_minimum_non_letter">Password minimum non letter</string>
+    <string name="password_minimum_numeric">Password minimum numeric</string>
+    <string name="password_minimum_symbols">Password minimum symbols</string>
+    <string name="maximum_failed_passwords_for_wipe">Maximum failed passwords for wipe</string>
+    <string name="maximum_time_to_lock">Maximum time to lock</string>
+
+    <string name="easter_egg_success">Now you have log version agent</string>
+    <plurals name="easter_egg_attempts">
+        <item quantity="one">You have %d Attempt</item>
+        <item quantity="other">You have %d Attempts</item>
+    </plurals>
+
+    <string name="close">Close</string>
+    <string name="without_data_to_show">Without data to show</string>
+    <string name="we_can_not_show_the_log">We can\'t show the log data please delete and try again</string>
+
+    <string name="supervisor_information">Supervisor information</string>
+    <string name="supervisor_name">Organization</string>
+    <string name="supervisor_email">Email</string>
+
+    <string name="drawer_information">Information</string>
+    <string name="drawer_activity">Activity</string>
+    <string name="drawer_mqtt_config">MQTT Configuration</string>
+    <string name="drawer_test_policies">Test Policies</string>
+    <string name="drawer_help">Help</string>
+    <string name="drawer_about">About</string>
+    <string name="drawer_configuration">Configuration</string>
+    <string name="drawer_feedback">Feedback</string>
+
+    <string name="app_pending">Pending</string>
+    <string name="app_installed">Installed</string>
+    <string name="app_need_to_be_uninstall">Need to be uninstall</string>
+    <string name="app_not_installed">Not installed</string>
+    <string name="app_no_data">No applications available</string>
+    <string name="app_pending_to_install">Pending to install</string>
+    <string name="app_ready_to_update">Ready to update</string>
+
+    <string name="file_no_data">No files available</string>
+
+    <string-array name="email_array">
+        <item>home</item>
+        <item>work</item>
+        <item>other</item>
+    </string-array>
+
+    <string-array name="language_array">
+        <item>English</item>
+        <item>French</item>
+        <item>Spanish</item>
+    </string-array>
+
+    <string-array name="phone_array">
+        <item>mobile</item>
+        <item>home</item>
+        <item>work</item>
+        <item>main</item>
+        <item>home fax</item>
+        <item>work fax</item>
+        <item>pager</item>
+        <item>other</item>
+    </string-array>
+
+    <string name="dialog_share_title">Select the format to share</string>
+    <string-array name="export_list">
+        <item>XML</item>
+        <item>JSON</item>
+    </string-array>
+
+    <string name="permission_title">Permissions</string>
+    <string name="permission_message">This application requires special permits to work properly, then if required we will request you to approve them, we will also generate an inventory of your device that you will be able to review and share.\n\n <b>Permission list:</b>\n\n - Access photos, media, and files on your device\n - Make and manage phone calls\n - Take picture and record video\n - Device\'s location</string>
+    <string name="permission_button_request">Request Permission</string>
+    <string name="permission_button_share">Share the inventory</string>
+    <string name="permission_button_continue">Continue</string>
+    <string name="permission_error_result">All the permissions are required</string>
+
+    <string name="option_title">Android options</string>
+    <string name="option_message">Some FlyveMDM features require the activation of android options (it is not mandatory, you can enable/disable them in the FlyveMDM options later:</string>
+    <string name="option_draw_overlay">Draw overlay \n For FlyveMDM new lock screen feature</string>
+
+
+
+
+    <string name="feedback_message_hint">Add any additional message</string>
+    <string name="feedback_title">Please help us to confirm if the policies are working correctly on your device\n\n <b>Important: if you check the policy is working fine for you</b></string>
+    <string name="feedback_send">Send</string>
+    <string name="feedback_send_success">Feedback sent</string>
+
+    <string name="scan_camera_problem_dialog_title">Sorry</string>
+    <string name="scan_camera_problem_dialog_message">The camera has a problem. You probably need to restart the device.</string>
+    <string name="scan_camera_permission_dialog_title">Camera permission</string>
+    <string name="scan_camera_permission_dialog_message">In order to scan QR codes, you need to grant permission to use the camera.</string>
+
+    <string name="button_dismiss">Dismiss</string>
+
+    <string name="MQTT_ERROR_CONNECTION">Please check your connectivity</string>
+    <string name="ERROR_INTERNAL">Internal Error, please try again</string>
+    <string name="ERROR_DEEP_LINK">Problems with deep link</string>
+    <string name="inventory_file_not_exists">The inventory file does not exist</string>
+    <string name="inventory_not_exists">The inventory does not exists</string>
+    <string name="fail">fail</string>
+    <string name="inventory_cannot_read_the_file">Inventory fail, cannot read the file</string>
+    <string name="inventory_cannot_send_offline">Cannot sent the inventory the device is offline</string>
+    <string name="creating_inventory">Creating inventory...</string>
+    <string name="creating_session">Creating session...</string>
+    <string name="inventory_fail">The inventory fail:</string>
+    <string name="empty">Empty</string>
+    <string name="connection_variables">Connection variables</string>
+    <string name="generate_client_id">Generate Client Id</string>
+    <string name="error_on_client_connect">Error on client.connect</string>
+    <string name="mqtt_exception">MQTT Exception:</string>
+    <string name="general_exception">General Exception</string>
+    <string name="mqtt_connection_lost">MQTT Connection lost</string>
+    <string name="mqtt_delivery">MQTT Delivery</string>
+    <string name="response_id">Response id</string>
+    <string name="download">Download</string>
+    <string name="download_in_progress">Download in progress</string>
+    <string name="Downloading">Downloading</string>
+    <string name="download_complete">Download %1$s complete</string>
+    <string name="download_fail">Download %1$s fail</string>
+    <string name="version_code">Version Code: %1$s</string>
+    <string name="version_name">Version Name: %1$s</string>
+    <string name="log">Log</string>
+    <string name="policies">Policies</string>
+    <string name="applications">Applications</string>
+    <string name="files">Files</string>
+    <string name="topics">Topics</string>
+    <string name="danger">DANGER</string>
+    <string name="erase_all_data_question">Are you sure do you want erase all the data?</string>
+    <string name="YES">YES</string>
+    <string name="NO">NO</string>
+    <string name="datauri_not_point_apk_location">Set the data uri to point to an apk location!</string>
+    <string name="packageinstaller_android_n_support"><![CDATA[PackageInstaller < Android N only supports file scheme!]]></string>
+    <string name="packageinstaller_android_n_support_content_scheme"><![CDATA[PackageInstaller >= Android N only supports content scheme!]]></string>
+    <string name="message">message</string>
+    <string name="installing_app">Installing App</string>
+    <string name="disable_notifications">Disable Notifications</string>
+    <string name="enable_connection_notifications">Enable Connection Notifications</string>
+    <string name="enable_dark_theme">Enable Dark Theme</string>
+    <string name="delete_data">Delete Data</string>
+    <string name="message_from_mqtt_service">Message from MQTT Service</string>
+    <string name="error_message_with_number">(%1$s) - %2$s</string>
+    <string name="wrong_json_format">Wrong information, data: %1$s - error: %2$s</string>
+
+    <string name="deeplink_url">URL: %1$s</string>
+    <string name="deeplink_invitation_token">Invitation Token: %1$s</string>
+    <string name="deeplink_user_token">User Token: %1$s</string>
+
+    <string name="policy_notification">Please sync your agent</string>
+    <string name="policy_installed">The MDM Agent is update</string>
+
+    <string name="splash_error_scan">The scan have some problem with the QR</string>
+</resources>
