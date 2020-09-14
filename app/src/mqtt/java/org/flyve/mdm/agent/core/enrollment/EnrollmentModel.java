@@ -27,7 +27,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 
 import org.flyve.inventory.categories.Hardware;
 import org.flyve.mdm.agent.BuildConfig;

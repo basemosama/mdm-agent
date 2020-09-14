@@ -26,7 +26,6 @@ package org.flyve.mdm.agent.ui;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +33,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Switch;
+
+import androidx.fragment.app.Fragment;
 
 import org.flyve.mdm.agent.R;
 import org.flyve.mdm.agent.data.database.PoliciesData;

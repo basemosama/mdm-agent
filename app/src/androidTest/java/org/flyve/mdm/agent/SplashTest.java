@@ -28,8 +28,8 @@ package org.flyve.mdm.agent;
  */
 
 import android.os.Build;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.runner.AndroidJUnit4;
 import android.view.WindowManager;
 
 import org.flyve.mdm.agent.ui.SplashActivity;

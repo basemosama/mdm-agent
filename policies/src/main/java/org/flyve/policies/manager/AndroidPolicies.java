@@ -23,31 +23,20 @@
 
 package org.flyve.policies.manager;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.Instrumentation;
-import android.app.KeyguardManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.PowerManager;
 import android.provider.Settings;
-import android.support.v4.content.ContextCompat;
-import android.view.KeyEvent;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.inputmethod.BaseInputConnection;
+import androidx.core.content.ContextCompat;
 
 import org.flyve.policies.utils.FlyveLog;
 import org.flyve.policies.utils.Helpers;
 
 import static android.app.admin.DevicePolicyManager.WIPE_EXTERNAL_STORAGE;
-import static android.content.Context.KEYGUARD_SERVICE;
 import static android.content.Context.POWER_SERVICE;
 
 public class AndroidPolicies {

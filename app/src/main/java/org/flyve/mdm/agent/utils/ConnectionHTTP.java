@@ -617,7 +617,7 @@ public class ConnectionHTTP {
 		StringBuilder sb = new StringBuilder();
 		String line = null;
 		while ((line = br.readLine()) != null) {
-			sb.append(line + "\n");
+			sb.append(line).append("\n");
 		}
 		br.close();
 		return sb.toString();

@@ -32,10 +32,10 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.core.app.FragmentActivity;
+import androidx.core.content.LocalBroadcastManager;
+import androidx.core.view.PagerAdapter;
+import androidx.core.view.ViewPager;
 import android.view.View;
 import android.widget.TextView;
 

@@ -23,8 +23,9 @@
 
 package org.flyve.mdm.agent.core.walkthrough;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.PagerAdapter;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.ArrayList;
 

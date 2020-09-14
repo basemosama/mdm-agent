@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     >
 
-    <android.support.v7.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
@@ -31,14 +30,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/disclosure_title"
-                android:layout_toRightOf="@+id/imgLogo"
-                android:layout_marginLeft="10dp"
                 android:layout_centerVertical="true"
                 style="@style/titleTextWhite"
-                />
+                android:layout_toEndOf="@+id/imgLogo"
+                android:layout_marginStart="10dp"
+                android:layout_toRightOf="@+id/imgLogo"
+                android:layout_marginLeft="10dp" />
         </RelativeLayout>
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
         android:layout_width="match_parent"

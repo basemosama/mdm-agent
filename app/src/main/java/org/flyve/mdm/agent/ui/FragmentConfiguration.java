@@ -29,8 +29,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,9 +43,6 @@ import org.flyve.mdm.agent.R;
 import org.flyve.mdm.agent.data.localstorage.AppData;
 import org.flyve.mdm.agent.data.localstorage.LocalStorage;
 import org.flyve.mdm.agent.data.database.MqttData;
-import org.flyve.mdm.agent.utils.FlyveLog;
-
-import static org.flyve.mdm.agent.ui.OptionsEnrollmentActivity.REQUEST_DRAWOVERLAY_CODE;
 
 public class FragmentConfiguration extends Fragment {
 

@@ -1,5 +1,6 @@
 package org.flyve.mdm.agent.firebase;
 
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -9,11 +10,17 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.SystemClock;
-import android.support.v4.app.NotificationCompat;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationCompat;
+
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.orhanobut.logger.Logger;
 
 import org.flyve.mdm.agent.MessagePolicies;
 import org.flyve.mdm.agent.R;
@@ -27,9 +34,14 @@ import java.util.Date;
 import java.util.Locale;
 
 public class MessagingService extends FirebaseMessagingService {
-
     private static final String TAG = "MessageService";
+    private static final String NOTIFICATION_CHANNEL_ID = "org.flyve.mdm.agent.channel";
 
+    @Override
+    public void onNewToken(@NonNull String token) {
+        super.onNewToken(token);
+        Log.d(TAG, "Refreshed Token : " + token);
+    }
     /**
      * Called when message is received.
      *
@@ -70,7 +82,7 @@ public class MessagingService extends FirebaseMessagingService {
         }
 
         final String body;
-        if(remoteMessage.getNotification() == null || remoteMessage.getNotification().getBody().equals("")) {
+        if(remoteMessage.getNotification() == null || TextUtils.isEmpty(remoteMessage.getNotification().getBody())) {
             body = "Please sync your device";
         } else {
             body = remoteMessage.getNotification().getBody();
@@ -84,6 +96,7 @@ public class MessagingService extends FirebaseMessagingService {
     }
 
 
+
     /**
      * Create and show a simple notification containing the received FCM message.
      */
@@ -93,7 +106,58 @@ public class MessagingService extends FirebaseMessagingService {
         FlyveLog.d(debugInfo);
         MessagePolicies messagePolicies = new MessagePolicies();
         messagePolicies.messageArrived(MDMAgent.getInstance(), topic, message);
+        FlyveLog.d("Notification: " + body);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+
+        //create Notification Channel
+        if (isAndroidOreoOrHigher() && notificationManager != null) {
+            createNotificationChannel(notificationManager);
+        }
+
+        Intent intent = new Intent(this, PushPoliciesActivity.class);
+        intent.putExtra("topic", topic);
+        intent.putExtra("message", message);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, getID(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,NOTIFICATION_CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_notification_white)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+                .setContentTitle(topic)
+                .setContentText(message)
+                .setSound(defaultSoundUri)
+                .setAutoCancel(true)
+                .setContentIntent(pendingIntent);
+
+
+        builder.setStyle(new NotificationCompat.BigTextStyle().bigText(body));
+
+        if (notificationManager != null) {
+            notificationManager.notify(getID(), builder.build());
+        }
     }
+    @RequiresApi(Build.VERSION_CODES.O)
+    private void createNotificationChannel(NotificationManager notificationManager) {
+        if (notificationManager.getNotificationChannel(NOTIFICATION_CHANNEL_ID) == null) {
+            CharSequence name = "MDM Notification";
+            String description = "Default Notification For MDM Application";
+            int importance = NotificationManager.IMPORTANCE_LOW;
+            NotificationChannel channel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            channel.enableLights(true);
+            channel.enableVibration(true);
+            channel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 100});
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    private boolean isAndroidOreoOrHigher() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
+    }
+
 
     private int getID() {
         Date now = new Date();

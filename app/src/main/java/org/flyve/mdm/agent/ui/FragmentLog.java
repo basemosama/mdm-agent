@@ -24,15 +24,17 @@
 package org.flyve.mdm.agent.ui;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.flyve.mdm.agent.R;
 import org.flyve.mdm.agent.adapter.LogAdapter;
@@ -45,7 +47,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class FragmentLog extends Fragment  {
+public class FragmentLog extends Fragment {
 
     private TextView txtMessage;
     private List<HashMap<String, String>> arrData;

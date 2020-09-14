@@ -31,13 +31,16 @@ import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.orhanobut.logger.Logger;
 
 import org.flyve.mdm.agent.R;
 import org.flyve.mdm.agent.core.walkthrough.Walkthrough;
@@ -161,6 +164,7 @@ public class SplashActivity extends FragmentActivity implements Walkthrough.View
 
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
         if (requestCode == REQUEST_CODE_SCAN && resultCode == Activity.RESULT_OK) {
             String input = intent.getStringExtra(ScanActivity.INTENT_EXTRA_RESULT);
 

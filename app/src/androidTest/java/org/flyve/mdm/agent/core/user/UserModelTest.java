@@ -1,8 +1,8 @@
 package org.flyve.mdm.agent.core.user;
 
 import android.content.Context;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.rule.ActivityTestRule;
+import androidx.test.InstrumentationRegistry;
+import androidx.test.rule.ActivityTestRule;
 
 import org.flyve.mdm.agent.ui.EnrollmentActivity;
 import org.junit.Assert;
@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
+import static androidx.test.InstrumentationRegistry.getInstrumentation;
 import static org.mockito.Mockito.mock;
 
 /*

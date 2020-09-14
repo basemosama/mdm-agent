@@ -26,7 +26,7 @@ package org.flyve.mdm.agent.core.permission;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 
 import org.flyve.inventory.InventoryTask;
 import org.flyve.mdm.agent.R;

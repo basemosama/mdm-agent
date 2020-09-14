@@ -25,7 +25,6 @@ package org.flyve.mdm.agent.ui;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +32,8 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import androidx.fragment.app.Fragment;
 
 import org.flyve.mdm.agent.R;
 import org.flyve.mdm.agent.utils.Helpers;

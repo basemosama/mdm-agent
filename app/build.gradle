@@ -6,13 +6,13 @@ static def releaseTime() {
 }
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.3'
     defaultConfig {
         applicationId 'org.flyve.mdm.agent'
         minSdkVersion 16
-        targetSdkVersion 28
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        targetSdkVersion 29
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         release {
@@ -63,7 +63,7 @@ sonarqube {
 }
 
 dependencies {
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     androidTestImplementation('tools.fastlane:screengrab:1.1.0', {
@@ -84,15 +84,15 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.google.zxing:core:3.3.0'
     //Firebase
-    fcmImplementation 'com.google.firebase:firebase-core:16.0.5'
-    fcmImplementation 'com.google.firebase:firebase-messaging:17.3.4'
+    fcmImplementation 'com.google.firebase:firebase-core:17.5.0'
+    fcmImplementation 'com.google.firebase:firebase-messaging:20.2.4'
     // Google libraries
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:design:28.0.0'
-    implementation 'com.android.support:support-v4:28.0.0'
-    implementation 'android.arch.persistence.room:runtime:1.1.1'
-    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.room:room-runtime:2.2.5'
+    annotationProcessor 'androidx.room:room-compiler:2.2.5'
     // Logger
     implementation 'com.orhanobut:logger:2.2.0'
     // Android Inventory Library

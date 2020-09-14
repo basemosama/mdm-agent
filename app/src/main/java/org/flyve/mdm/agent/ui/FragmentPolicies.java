@@ -24,12 +24,13 @@
 package org.flyve.mdm.agent.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import org.flyve.mdm.agent.R;
 import org.flyve.mdm.agent.adapter.PoliciesAdapter;

@@ -27,17 +27,18 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.flyve.mdm.agent.MessagePolicies;
 import org.flyve.mdm.agent.R;
 import org.flyve.mdm.agent.adapter.DrawerAdapter;
 import org.flyve.mdm.agent.data.localstorage.AppData;
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         mFragmentManager = getSupportFragmentManager();
 
         // Setup Drawer Toggle of the Toolbar
-        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this,mDrawerLayout, toolbar,R.string.app_name,
                 R.string.app_name);
 
@@ -139,18 +140,18 @@ public class MainActivity extends AppCompatActivity {
     private void loadFragment(HashMap<String, String> item, String extra) {
 
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-
         txtToolbarTitle.setText(item.get("name").toUpperCase());
 
+
         // Information
-        if (item.get("id").equals("1")) {
+        if (TextUtils.equals(item.get("id"),"1")) {
             FragmentInformation f = new FragmentInformation();
             fragmentTransaction.replace(R.id.containerView, f).commit();
             return;
         }
 
         // Activity
-        if (item.get("id").equals("2")) {
+        if (TextUtils.equals(item.get("id"),"2")) {
             FragmentActivity f = new FragmentActivity();
             f.setup(extra);
             fragmentTransaction.replace(R.id.containerView, f).commit();
@@ -158,40 +159,40 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // MQTT Configuration
-        if (item.get("id").equals("3")) {
+        if (TextUtils.equals(item.get("id"),"3")) {
             FragmentMQTTConfig f = new FragmentMQTTConfig();
             fragmentTransaction.replace(R.id.containerView, f).commit();
             return;
         }
 
         // Test Policies
-        if (item.get("id").equals("6")) {
+        if (TextUtils.equals(item.get("id"),"6")) {
             FragmentTestPolicies f = new FragmentTestPolicies();
             fragmentTransaction.replace(R.id.containerView, f).commit();
             return;
         }
 
         // Help
-        if (item.get("id").equals("4")) {
+        if (TextUtils.equals(item.get("id"),"4")) {
             FragmentHelp f = new FragmentHelp();
             fragmentTransaction.replace(R.id.containerView, f).commit();
             return;
         }
 
         // About
-        if (item.get("id").equals("5")) {
+        if (TextUtils.equals(item.get("id"),"5")) {
             FragmentAbout f = new FragmentAbout();
             fragmentTransaction.replace(R.id.containerView, f).commit();
         }
 
         // Configuration
-        if (item.get("id").equals("7")) {
+        if (TextUtils.equals(item.get("id"),"7")) {
             FragmentConfiguration f = new FragmentConfiguration();
             fragmentTransaction.replace(R.id.containerView, f).commit();
         }
 
         // Feedback
-        if (item.get("id").equals("8")) {
+        if (TextUtils.equals(item.get("id"),"8")) {
             FragmentFeedback f = new FragmentFeedback();
             fragmentTransaction.replace(R.id.containerView, f).commit();
         }
