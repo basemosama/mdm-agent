@@ -40,7 +40,7 @@ public class MessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
-        Log.d(TAG, "Refreshed Token : " + token);
+        Log.d("Refreshed Token :" , token);
     }
     /**
      * Called when message is received.
@@ -56,8 +56,8 @@ public class MessagingService extends FirebaseMessagingService {
         // When the user taps on the notification they are returned to the app. Messages containing both notification
         // and data payloads are treated as notification messages. The Firebase console always sends notification
         // messages. For more see: https://firebase.google.com/docs/cloud-messaging/concept-options
-        //
-        Log.d(TAG, "From: " + remoteMessage.getFrom());
+
+        Logger.d(TAG + "From: " + remoteMessage.getFrom());
 
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
@@ -95,8 +95,6 @@ public class MessagingService extends FirebaseMessagingService {
         SystemClock.sleep(1000);
     }
 
-
-
     /**
      * Create and show a simple notification containing the received FCM message.
      */
@@ -107,57 +105,7 @@ public class MessagingService extends FirebaseMessagingService {
         MessagePolicies messagePolicies = new MessagePolicies();
         messagePolicies.messageArrived(MDMAgent.getInstance(), topic, message);
         FlyveLog.d("Notification: " + body);
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-
-        //create Notification Channel
-        if (isAndroidOreoOrHigher() && notificationManager != null) {
-            createNotificationChannel(notificationManager);
-        }
-
-        Intent intent = new Intent(this, PushPoliciesActivity.class);
-        intent.putExtra("topic", topic);
-        intent.putExtra("message", message);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, getID(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,NOTIFICATION_CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_notification_white)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
-                .setContentTitle(topic)
-                .setContentText(message)
-                .setSound(defaultSoundUri)
-                .setAutoCancel(true)
-                .setContentIntent(pendingIntent);
-
-
-        builder.setStyle(new NotificationCompat.BigTextStyle().bigText(body));
-
-        if (notificationManager != null) {
-            notificationManager.notify(getID(), builder.build());
-        }
     }
-    @RequiresApi(Build.VERSION_CODES.O)
-    private void createNotificationChannel(NotificationManager notificationManager) {
-        if (notificationManager.getNotificationChannel(NOTIFICATION_CHANNEL_ID) == null) {
-            CharSequence name = "MDM Notification";
-            String description = "Default Notification For MDM Application";
-            int importance = NotificationManager.IMPORTANCE_LOW;
-            NotificationChannel channel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, name, importance);
-            channel.setDescription(description);
-            channel.enableLights(true);
-            channel.enableVibration(true);
-            channel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 100});
-            notificationManager.createNotificationChannel(channel);
-        }
-    }
-
-    private boolean isAndroidOreoOrHigher() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
-    }
-
 
     private int getID() {
         Date now = new Date();

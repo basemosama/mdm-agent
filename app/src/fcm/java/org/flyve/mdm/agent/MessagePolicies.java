@@ -2,22 +2,9 @@ package org.flyve.mdm.agent;
 
 import android.content.Context;
 
-import com.google.firebase.messaging.FirebaseMessaging;
-
-import org.flyve.mdm.agent.core.Routes;
-import org.flyve.mdm.agent.core.enrollment.EnrollmentHelper;
-import org.flyve.mdm.agent.data.database.ApplicationData;
-import org.flyve.mdm.agent.data.database.FileData;
-import org.flyve.mdm.agent.data.database.MqttData;
 import org.flyve.mdm.agent.data.database.PoliciesData;
 import org.flyve.mdm.agent.policies.PoliciesAsyncTask;
-import org.flyve.mdm.agent.receivers.FlyveAdminReceiver;
-import org.flyve.mdm.agent.ui.MDMAgent;
-import org.flyve.mdm.agent.utils.ConnectionHTTP;
 import org.flyve.mdm.agent.utils.FlyveLog;
-import org.flyve.mdm.agent.utils.Helpers;
-import org.flyve.policies.manager.AndroidPolicies;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 /*

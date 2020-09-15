@@ -24,11 +24,17 @@
 package org.flyve.mdm.agent.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.orhanobut.logger.Logger;
+
 import org.flyve.mdm.agent.core.Routes;
 import org.flyve.mdm.agent.data.database.MqttData;
+import org.flyve.mdm.agent.ui.PushPoliciesActivity;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -167,6 +173,8 @@ public class ConnectionHTTP {
 	}
 
 	public static void sendHttpResponse(final Context context, final String url, final String data, final String sessionToken, final DataCallback callback) {
+		Logger.d("Sending Http Response");
+		Logger.d("data : %s",data);
 		Thread t = new Thread(new Runnable()
 		{
 			public void run()
@@ -200,16 +208,20 @@ public class ConnectionHTTP {
 
 					// Send post request
 					conn.setDoOutput(true);
+					JSONObject data2 = new JSONObject();
+					JSONObject jsonObject1 = new JSONObject();
+					jsonObject1.put("is_online",true);
+					data2.put("input",jsonObject1);
 
 					DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-					os.writeBytes(data);
+					os.writeBytes(data2.toString());
+					Logger.d(data2.toString());
 					os.flush();
 					os.close();
 
 					if(conn.getResponseCode() >= 400) {
 						InputStream is = conn.getErrorStream();
 						final String result = inputStreamToString(is);
-
 						ConnectionHTTP.runOnUI(new Runnable()
 						{
 							public void run()
@@ -226,6 +238,7 @@ public class ConnectionHTTP {
 					String response = "\n URL:\n" + url + "\n\n Method:\n" + conn.getRequestMethod() + "\n\n Code:\n" + conn.getResponseCode() + " " + conn.getResponseMessage() + "\n\n Header:\n" + logHeader + "\n\n Data:\n" + data +"\n\n Response:\n" + requestResponse + "\n\n";
 					LogDebug(response);
 
+					Logger.d(requestResponse);
 					ConnectionHTTP.runOnUI(new Runnable() {
 						public void run() {
 							callback.callback(requestResponse);
@@ -250,6 +263,8 @@ public class ConnectionHTTP {
 	}
 
 	public static void sendHttpResponsePolicies(final Context context, final String taskId, final String data, final String sessionToken, final DataCallback callback) {
+		Logger.d("Sending Http Response Policies");
+
 		Thread t = new Thread(new Runnable()
 		{
 			public void run()

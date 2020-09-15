@@ -1,12 +1,15 @@
 package org.flyve.mdm.agent.policies;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
+
+import com.orhanobut.logger.Logger;
 
 import org.flyve.inventory.InventoryTask;
 import org.flyve.mdm.agent.core.Routes;
@@ -18,6 +21,7 @@ import org.flyve.mdm.agent.data.database.PoliciesData;
 import org.flyve.mdm.agent.receivers.FlyveAdminReceiver;
 import org.flyve.mdm.agent.ui.LockActivity;
 import org.flyve.mdm.agent.ui.MDMAgent;
+import org.flyve.mdm.agent.ui.PushPoliciesActivity;
 import org.flyve.mdm.agent.utils.ConnectionHTTP;
 import org.flyve.mdm.agent.utils.FastLocationProvider;
 import org.flyve.mdm.agent.utils.FlyveLog;
@@ -418,6 +422,8 @@ public class PoliciesAsyncTask extends AsyncTask<Object, Integer, Boolean> {
                     @Override
                     public void callback(String data) {
                         Helpers.storeLog("fcm", "http response from url", data);
+                        Logger.d(data);
+
                     }
                 });
             }

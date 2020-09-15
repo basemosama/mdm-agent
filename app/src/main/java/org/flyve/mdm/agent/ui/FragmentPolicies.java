@@ -64,6 +64,7 @@ public class FragmentPolicies extends Fragment {
     }
 
     private void loadData(ListView lst) {
+
         List<Policies> arrPolicies = new PoliciesData(FragmentPolicies.this.getContext()).getAllPolicies();
 
         ArrayList arr = new ArrayList<HashMap<String, Boolean>>();
