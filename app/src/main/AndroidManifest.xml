@@ -10,8 +10,6 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <!-- For writing logfiles -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <!-- Allows for storing and retrieving screenshots -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -28,6 +26,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.USB_PERMISSION" />
+
 
     <uses-feature
         android:name="android.hardware.nfc"
@@ -56,6 +55,9 @@
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- wifi -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 
     <!-- Auto start app on boot-->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />

@@ -23,6 +23,7 @@
 
 package org.flyve.policies.manager;
 
+import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.media.AudioManager;
@@ -31,6 +32,8 @@ import android.os.Build;
 import android.os.Handler;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
+
+
 import org.flyve.policies.utils.FlyveLog;
 import java.io.DataOutputStream;
 import java.lang.reflect.Method;
@@ -46,7 +49,7 @@ public class CustomPolicies {
         this.context = context;
     }
 
-    private void executecmd(String[] cmds) {
+    private void executeCmd(String[] cmds) {
         try {
             Process p = Runtime.getRuntime().exec("su");
             DataOutputStream os = new DataOutputStream(p.getOutputStream());
@@ -106,10 +109,10 @@ public class CustomPolicies {
 
         if(disable) {
             String[] cmds = {"cd /system/bin", "settings put secure location_providers_allowed -gps", "settings put secure location_providers_allowed -network" };
-            executecmd(cmds);
+            executeCmd(cmds);
         } else {
             String[] cmds = {"cd /system/bin", "settings put secure location_providers_allowed +gps", "settings put secure location_providers_allowed +network" };
-            executecmd(cmds);
+            executeCmd(cmds);
         }
     }
 
@@ -121,7 +124,7 @@ public class CustomPolicies {
         }
 
         String[] cmds = {"cd /system/bin", "settings put global data_roaming " + value};
-        executecmd(cmds);
+        executeCmd(cmds);
     }
 
     public void disableNFC(boolean disable) {
@@ -131,7 +134,7 @@ public class CustomPolicies {
         }
 
         String[] cmds = {"svc nfc " + value};
-        executecmd(cmds);
+        executeCmd(cmds);
     }
 
     public void disableMobileLine(boolean disable) {
@@ -139,7 +142,7 @@ public class CustomPolicies {
             try {
                 TelephonyManager tm = (TelephonyManager) context.getApplicationContext().getSystemService(TELEPHONY_SERVICE);
 
-                Method m1 = tm.getClass().getDeclaredMethod("getITelephony");
+                @SuppressLint("SoonBlockedPrivateApi") Method m1 = tm.getClass().getDeclaredMethod("getITelephony");
                 m1.setAccessible(true);
                 Object iTelephony = m1.invoke(tm);
 
@@ -158,7 +161,7 @@ public class CustomPolicies {
             value = "0"; // disable
 
             String[] cmds = {"cd /system/bin", "settings put global airplane_mode_on " + value};
-            executecmd(cmds);
+            executeCmd(cmds);
         }
     }
 
@@ -175,7 +178,7 @@ public class CustomPolicies {
 
         String[] cmds = {"setprop persist.sys.usb.config " + value};
 
-        executecmd(cmds);
+        executeCmd(cmds);
     }
 
     public void disableADBUsbFileTransferProtocols(boolean disable) {
@@ -186,7 +189,7 @@ public class CustomPolicies {
 
         String[] cmds = {"setprop persist.sys.usb.config " + value};
 
-        executecmd(cmds);
+        executeCmd(cmds);
     }
 
     public void disablePTPUsbFileTransferProtocols(boolean disable) {
@@ -197,7 +200,7 @@ public class CustomPolicies {
 
         String[] cmds = {"setprop persist.sys.usb.config " + value};
 
-        executecmd(cmds);
+        executeCmd(cmds);
     }
 
     public void disableMTPUsbFileTransferProtocols(boolean disable) {
@@ -208,7 +211,7 @@ public class CustomPolicies {
 
         String[] cmds = {"setprop persist.sys.usb.config " + value};
 
-        executecmd(cmds);
+        executeCmd(cmds);
     }
 
     public void disableBluetooth(boolean disable) {
@@ -240,6 +243,7 @@ public class CustomPolicies {
                 aManager.setStreamMute(streamType, disable);
             }
         } catch (Exception ex) {
+
             FlyveLog.e(CustomPolicies.class.getClass().getName() + ", disableSounds", ex.getMessage());
         }
     }

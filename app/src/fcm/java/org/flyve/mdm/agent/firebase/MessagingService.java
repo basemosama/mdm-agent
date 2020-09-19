@@ -1,19 +1,8 @@
 package org.flyve.mdm.agent.firebase;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.media.RingtoneManager;
-import android.net.Uri;
-import android.os.Build;
 import android.os.SystemClock;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.core.app.NotificationCompat;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -23,9 +12,7 @@ import com.google.firebase.messaging.RemoteMessage;
 import com.orhanobut.logger.Logger;
 
 import org.flyve.mdm.agent.MessagePolicies;
-import org.flyve.mdm.agent.R;
 import org.flyve.mdm.agent.ui.MDMAgent;
-import org.flyve.mdm.agent.ui.PushPoliciesActivity;
 import org.flyve.mdm.agent.utils.FlyveLog;
 import org.flyve.mdm.agent.utils.Helpers;
 
@@ -35,7 +22,6 @@ import java.util.Locale;
 
 public class MessagingService extends FirebaseMessagingService {
     private static final String TAG = "MessageService";
-    private static final String NOTIFICATION_CHANNEL_ID = "org.flyve.mdm.agent.channel";
 
     @Override
     public void onNewToken(@NonNull String token) {
@@ -104,7 +90,7 @@ public class MessagingService extends FirebaseMessagingService {
         FlyveLog.d(debugInfo);
         MessagePolicies messagePolicies = new MessagePolicies();
         messagePolicies.messageArrived(MDMAgent.getInstance(), topic, message);
-        FlyveLog.d("Notification: " + body);
+
     }
 
     private int getID() {
